@@ -17,7 +17,17 @@ function addToDo() {
 
   const pendingsList = document.getElementById('pendingsList')
   const newLi = document.createElement('li')
-  newLi.innerHTML = toDoText
+  const checkBoxDoneToDo = document.createElement('input')
+  const btnDelete = document.createElement('button')
+  const toDoParagraph = document.createElement('p')
+
+  checkBoxDoneToDo.setAttribute('type', 'checkbox')
+  toDoParagraph.innerHTML = toDoText
+  btnDelete.innerText = '❌'
+
+  newLi.appendChild(checkBoxDoneToDo)
+  newLi.appendChild(toDoParagraph)
+  newLi.appendChild(btnDelete)
 
   pendingsList.appendChild(newLi)
 }
