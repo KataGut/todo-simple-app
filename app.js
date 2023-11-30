@@ -1,8 +1,9 @@
 const toDos = []
 let toDoText = ''
+let inputtoDoName
 
 window.addEventListener('load', function () {
-  const inputtoDoName = document.getElementById('toDoName')
+  inputtoDoName = document.getElementById('toDoName')
   const buttonAddToDo = document.getElementById('addToDoBtn')
 
   inputtoDoName.addEventListener('change', function (event) {
@@ -27,13 +28,21 @@ function addToDo() {
   const btnDelete = document.createElement('button')
   const toDoParagraph = document.createElement('p')
 
-  checkBoxDoneToDo.setAttribute('type', 'checkbox')
-  toDoParagraph.innerHTML = toDoText
-  btnDelete.innerText = '❌'
+  if (toDoText != '') {
+    checkBoxDoneToDo.setAttribute('type', 'checkbox')
+    toDoParagraph.innerHTML = toDoText
+    btnDelete.innerText = '❌'
 
-  newLi.appendChild(checkBoxDoneToDo)
-  newLi.appendChild(toDoParagraph)
-  newLi.appendChild(btnDelete)
+    newLi.appendChild(checkBoxDoneToDo)
+    newLi.appendChild(toDoParagraph)
+    newLi.appendChild(btnDelete)
 
-  pendingsList.appendChild(newLi)
+    pendingsList.appendChild(newLi)
+  }
+  clearInput()
+}
+
+function clearInput() {
+  inputtoDoName.value = ''
+  toDoText = ''
 }
