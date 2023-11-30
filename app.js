@@ -10,6 +10,12 @@ window.addEventListener('load', function () {
   })
 
   buttonAddToDo.addEventListener('click', addToDo)
+
+  inputtoDoName.addEventListener('keyup', function (event) {
+    if (event.keyCode === 13) {
+      addToDo()
+    }
+  })
 })
 
 function addToDo() {
